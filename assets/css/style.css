@@ -1,0 +1,249 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #2e3440;
+    color: white;
+}
+
+nav {
+    padding: 10px;
+    grid-area: navbar;
+    background-color: #4c566a;
+    color: white;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+    font-size: large;
+    font-weight: bold;
+}
+
+.navbar-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.icon-container {
+    display: flex;
+    align-items: flex-start;
+    align-items: center;
+}
+
+.icon-container h1 {
+    margin-left: 1em;
+}
+
+.icon-container2 {
+    display: flex;
+    margin-left: 1em;
+}
+
+.menu {
+    display: none;
+}
+
+.menu li:hover {
+    background-color: #88c0d0;
+}
+
+main {
+    grid-area: main;
+    background-color: #d8dee9;
+    padding: 20px;
+}
+
+.parques {
+    background-color: #eceff4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2em;
+}
+
+.parque-container {
+    position: relative;
+    width: 300px;
+    height: 100px;
+    overflow: hidden;
+    border: 2px solid #333;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.parque {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    color: #2e3440; /* Cambiar color de texto */
+    animation: change 9s infinite;
+    opacity: 0;
+}
+
+.norte {
+    animation-delay: 0s;
+}
+
+.centro {
+    animation-delay: 3s;
+}
+
+.sur {
+    animation-delay: 6s;
+}
+
+@keyframes change {
+    0%, 20% {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+    25%, 45% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    50%, 100% {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+}
+
+.productos {
+    display: flex;
+    flex-direction: column;
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #4c566a; /* Cambiar color de fondo del footer */
+    color: white;
+    padding: 10px;
+}
+
+.card {
+    width: 100%;
+    max-width: 300px; /* Establece un ancho máximo para la card */
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    background-color: #fff;
+    margin-bottom: 20px;
+    overflow: hidden;
+    transition: transform 0.3s, filter 0.3s;
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    display: block;
+    max-width: 100%;
+    height: auto;
+    transition: transform 0.3s;
+}
+
+.card:hover img {
+    transform: scale(1.2);
+    z-index: 10;
+}
+
+.card:hover {
+    transform: scale(1.2);
+    z-index: 10;
+}
+
+.productos:hover .card:not(:hover) {
+    filter: brightness(0.5);
+    background-color: #3b4252; /* Oscurecimiento */
+}
+
+.card h4 {
+    margin-top: 20px;
+}
+
+.tabla {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.grid-container {
+    display: grid;
+    border: 1px solid black;
+    grid-template-rows: 1fr 8fr 1fr;
+    grid-template-areas: "navbar" "main" "footer";
+}
+
+@media screen and (min-width: 576px) {
+    .grid-container {
+        display: grid;
+        grid-template-areas: 
+            "navbar main"
+            "footer main";
+        grid-template-columns: 3fr 10fr;
+        grid-template-rows: 8fr 2fr;
+    }
+
+    nav {
+        display: flex;
+        padding: 10px;
+        grid-area: navbar;
+        background: #4c566a;
+        color: white;
+    }
+    .navbar-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    .icon-container2 {
+        display: none;
+    }
+
+    .menu {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+    }
+    .menu li:hover {
+        background-color: #88c0d0;
+    }
+
+    main {
+        grid-area: main;
+        background-color: #d8dee9;
+    }
+    .productos {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    footer {
+        grid-area: footer;
+    }
+
+    .logo-footer {
+        margin-bottom: 10px; /* Agregamos margen inferior para separar los logos del texto */
+    }
+
+    .texto-footer {
+        text-align: center;
+    }
+}
